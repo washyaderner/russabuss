@@ -1,0 +1,116 @@
+---
+// TrustSection.astro - Professional Credentials Grid
+const credentials = [
+  {
+    title: "15 Years Experience",
+    description: "Since 2010",
+    icon: "🎵"
+  },
+  {
+    title: "Flexible Projects",
+    description: "Albums, Podcasts, Movie Scores",
+    icon: "🎬"
+  },
+  {
+    title: "Industry Standard",
+    description: "Pro Tools certified",
+    icon: "⚡"
+  },
+  {
+    title: "Premium Gear",
+    description: "Full studio setup",
+    icon: "🎚️"
+  }
+];
+---
+
+<section class="trust-section section">
+  <div class="container">
+    <div class="trust-grid">
+      {credentials.map((credential) => (
+        <div class="trust-card glass">
+          <div class="trust-icon" aria-hidden="true">{credential.icon}</div>
+          <h3 class="trust-title">{credential.title}</h3>
+          <p class="trust-description">{credential.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .trust-card {
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+    transition: all var(--transition-base);
+    position: relative;
+  }
+
+  .trust-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+      0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .trust-icon {
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-4);
+    line-height: 1;
+  }
+
+  .trust-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+    font-family: var(--font-display);
+  }
+
+  .trust-description {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+
+  /* Responsive Grid Layout */
+  @media (min-width: 640px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .trust-section {
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-16);
+    }
+
+    .trust-grid {
+      gap: var(--space-8);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .trust-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-card {
+      padding: var(--space-10);
+    }
+  }
+</style>

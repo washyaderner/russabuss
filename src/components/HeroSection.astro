@@ -1,0 +1,129 @@
+---
+// HeroSection.astro - Premium Audio Engineering Hero
+---
+
+<section class="hero-section section">
+  <div class="container">
+    <div class="hero-content glass">
+      <h1 class="hero-headline">
+        Premium Audio Engineering for Artists Who Demand <span class="gradient-text">Excellence</span>
+      </h1>
+
+      <div class="hero-subheadlines">
+        <p class="subheadline-primary">15 years crafting professional sound</p>
+        <p class="subheadline-secondary">Mix & Master | Custom Beats | Studio Sessions</p>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="#pricing" class="btn btn-primary btn-lg">Browse Beats</a>
+        <a href="#contact" class="btn btn-secondary btn-lg">Book Session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+  .hero-content {
+    border-radius: var(--radius-2xl);
+    padding: var(--space-12);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-headline {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: var(--space-8);
+    color: var(--color-text-primary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+
+  .hero-subheadlines {
+    margin-bottom: var(--space-10);
+  }
+
+  .subheadline-primary {
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    font-weight: 500;
+    margin-bottom: var(--space-3);
+  }
+
+  .subheadline-secondary {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-16);
+    }
+
+    .hero-content {
+      padding: var(--space-8);
+    }
+
+    .hero-headline {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-6);
+    }
+
+    .subheadline-primary {
+      font-size: var(--text-lg);
+    }
+
+    .subheadline-secondary {
+      font-size: var(--text-base);
+    }
+
+    .hero-cta-group {
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .hero-cta-group .btn {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero-headline {
+      font-size: var(--text-5xl);
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .hero-headline {
+      font-size: var(--text-6xl);
+    }
+
+    .hero-content {
+      padding: var(--space-16);
+    }
+  }
+</style>

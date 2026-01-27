@@ -1,0 +1,292 @@
+---
+// PricingSection.astro - Pricing tiers for beat leases and exclusive rights
+---
+
+<section id="pricing" class="section pricing-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Beat Pricing</h2>
+      <p class="section-description">Choose the license that fits your project. All licenses include instant download and legal agreements.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- MP3 Lease -->
+      <div class="pricing-card glass">
+        <div class="pricing-header">
+          <h3 class="tier-name">MP3 Lease</h3>
+          <div class="price">
+            <span class="price-amount">$50</span>
+          </div>
+        </div>
+
+        <div class="format-badge">
+          <span class="format-text">MP3 320kbps</span>
+        </div>
+
+        <ul class="features-list">
+          <li class="feature-item">5,000 units</li>
+          <li class="feature-item">500,000 streams</li>
+          <li class="feature-item">Non-exclusive rights</li>
+        </ul>
+
+        <a href="#contact" class="btn btn-secondary select-btn">Select</a>
+      </div>
+
+      <!-- WAV Lease - MOST POPULAR -->
+      <div class="pricing-card glass highlight">
+        <div class="popular-badge">Most Popular</div>
+
+        <div class="pricing-header">
+          <h3 class="tier-name">WAV Lease</h3>
+          <div class="price">
+            <span class="price-amount">$80</span>
+          </div>
+        </div>
+
+        <div class="format-badge">
+          <span class="format-text">WAV 24-bit</span>
+        </div>
+
+        <ul class="features-list">
+          <li class="feature-item">10,000 units</li>
+          <li class="feature-item">1,000,000 streams</li>
+          <li class="feature-item">Radio broadcast rights</li>
+        </ul>
+
+        <a href="#contact" class="btn btn-primary select-btn">Select</a>
+      </div>
+
+      <!-- Trackouts -->
+      <div class="pricing-card glass">
+        <div class="pricing-header">
+          <h3 class="tier-name">Trackouts</h3>
+          <div class="price">
+            <span class="price-amount">$249</span>
+          </div>
+        </div>
+
+        <div class="format-badge">
+          <span class="format-text">Stems + WAV</span>
+        </div>
+
+        <ul class="features-list">
+          <li class="feature-item">Unlimited distribution</li>
+          <li class="feature-item">Full commercial use</li>
+          <li class="feature-item">Individual track stems</li>
+        </ul>
+
+        <a href="#contact" class="btn btn-secondary select-btn">Select</a>
+      </div>
+
+      <!-- Exclusive -->
+      <div class="pricing-card glass">
+        <div class="pricing-header">
+          <h3 class="tier-name">Exclusive</h3>
+          <div class="price">
+            <span class="price-amount">$2,000</span>
+            <span class="price-suffix">+</span>
+          </div>
+        </div>
+
+        <div class="format-badge">
+          <span class="format-text">Full Ownership</span>
+        </div>
+
+        <ul class="features-list">
+          <li class="feature-item">Complete copyright transfer</li>
+          <li class="feature-item">Removed from store</li>
+          <li class="feature-item">All files included</li>
+        </ul>
+
+        <a href="#contact" class="btn btn-secondary select-btn">Select</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-section {
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .section-description {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: var(--text-lg);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-8);
+    }
+  }
+
+  .pricing-card {
+    position: relative;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+
+    /* Teal borders for pricing cards */
+    border: 1.5px solid var(--pricing-border);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+
+    transition: all var(--transition-base);
+  }
+
+  .pricing-card:hover {
+    border-color: var(--pricing-hover-border);
+    box-shadow: var(--pricing-glow);
+    transform: translateY(-4px);
+  }
+
+  /* Highlighted card (WAV Lease) */
+  .pricing-card.highlight {
+    border-color: var(--pricing-highlight-border);
+    box-shadow: var(--pricing-glow);
+  }
+
+  .pricing-card.highlight:hover {
+    box-shadow: 0 0 28px rgba(11, 77, 90, 0.6);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: var(--space-2) var(--space-4);
+
+    background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover));
+    color: var(--color-black);
+
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 12px rgba(45, 212, 191, 0.3);
+  }
+
+  .pricing-header {
+    text-align: center;
+  }
+
+  .tier-name {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: var(--color-text-primary);
+  }
+
+  .price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--space-1);
+  }
+
+  .price-amount {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--color-teal);
+    line-height: 1;
+  }
+
+  .price-suffix {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--color-teal);
+  }
+
+  .format-badge {
+    text-align: center;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(45, 212, 191, 0.1);
+    border: 1px solid rgba(45, 212, 191, 0.3);
+    border-radius: var(--radius-md);
+  }
+
+  .format-text {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-teal);
+  }
+
+  .features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex-grow: 1;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    position: relative;
+    padding-left: var(--space-6);
+  }
+
+  .feature-item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-teal);
+    font-weight: 700;
+    font-size: var(--text-lg);
+  }
+
+  .select-btn {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 639px) {
+    .pricing-card {
+      padding: var(--space-6);
+    }
+
+    .tier-name {
+      font-size: var(--text-xl);
+    }
+
+    .price-amount {
+      font-size: var(--text-4xl);
+    }
+  }
+</style>

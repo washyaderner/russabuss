@@ -1,0 +1,221 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section footer-brand">
+        <h3 class="footer-logo">RUSSABUSS</h3>
+        <p class="footer-tagline">Professional Music Production & Audio Engineering</p>
+        <p class="footer-years">Since 2010</p>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-heading">Quick Links</h4>
+        <nav class="footer-nav">
+          <a href="/#pricing" class="footer-link">Pricing</a>
+          <a href="/#services" class="footer-link">Services</a>
+          <a href="/blog" class="footer-link">Blog</a>
+          <a href="/#contact" class="footer-link">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-list">
+          <li>Mix & Master</li>
+          <li>Custom Production</li>
+          <li>Beat Licensing</li>
+          <li>Studio Sessions</li>
+          <li>Vocal Production</li>
+          <li>DJ Services</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-contact">
+          <a href="mailto:audio@russabuss.com" class="footer-link">audio@russabuss.com</a>
+          <a href="tel:+15037345502" class="footer-link">(503) 734-5502</a>
+          <div class="footer-web3">
+            <span class="web3-label">Web3:</span>
+            <span class="web3-address">russabuss.eth</span>
+            <span class="web3-address">russabuss.sol</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; {currentYear} Russabuss. All rights reserved.
+      </p>
+      <div class="footer-legal">
+        <a href="/privacy" class="footer-link-sm">Privacy Policy</a>
+        <span class="footer-divider">•</span>
+        <a href="/terms" class="footer-link-sm">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: rgba(0, 0, 0, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: var(--space-16) 0 var(--space-8);
+    margin-top: var(--space-24);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    margin-bottom: var(--space-12);
+  }
+
+  @media (min-width: 640px) {
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-content {
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: var(--space-12);
+    }
+  }
+
+  .footer-brand {
+    max-width: 280px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .footer-tagline {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+  }
+
+  .footer-years {
+    font-size: var(--text-sm);
+    color: var(--color-teal);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .footer-heading {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-link {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-link:hover {
+    color: var(--color-teal);
+  }
+
+  .footer-web3 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-top: var(--space-2);
+  }
+
+  .web3-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .web3-address {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .footer-copyright {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .footer-link-sm {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-link-sm:hover {
+    color: var(--color-text-secondary);
+  }
+
+  .footer-divider {
+    color: var(--color-text-muted);
+  }
+</style>

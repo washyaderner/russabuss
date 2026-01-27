@@ -1,0 +1,131 @@
+---
+// FAQSection.astro - Frequently Asked Questions
+---
+
+<section id="faq" class="section faq-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-description">Quick answers to common questions about our services and licensing.</p>
+    </div>
+
+    <div class="faq-grid">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item glass">
+        <div class="faq-content">
+          <h3 class="faq-question">What do I get with a beat lease?</h3>
+          <p class="faq-answer">Audio files, commercial rights, and a license agreement for your specified usage.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item glass">
+        <div class="faq-content">
+          <h3 class="faq-question">How long does mixing/mastering take?</h3>
+          <p class="faq-answer">3-5 business days standard turnaround. Rush options available.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item glass">
+        <div class="faq-content">
+          <h3 class="faq-question">Do you offer revisions?</h3>
+          <p class="faq-answer">Yes, 2 rounds of revisions included with all projects.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item glass">
+        <div class="faq-content">
+          <h3 class="faq-question">How do I book studio time?</h3>
+          <p class="faq-answer">Use the contact form below or email audio@russabuss.com directly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .section-description {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: var(--text-lg);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 768px) {
+    .faq-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-8);
+    }
+  }
+
+  .faq-item {
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+    cursor: default;
+  }
+
+  .faq-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .faq-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .faq-question {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0;
+    line-height: 1.4;
+  }
+
+  .faq-answer {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 767px) {
+    .faq-item {
+      padding: var(--space-5);
+    }
+
+    .faq-question {
+      font-size: var(--text-lg);
+    }
+
+    .faq-answer {
+      font-size: var(--text-sm);
+    }
+  }
+</style>

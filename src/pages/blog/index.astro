@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { getAllPosts } from '../../lib/contentful';
+
+// Fetch all blog posts
+const posts = await getAllPosts();
+
+const pageTitle = 'Blog - Russabuss';
+const pageDescription = 'Music production insights, studio tips, and industry knowledge from 15 years of professional audio engineering experience.';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="blog-page">
+    <div class="container">
+      <!-- Header -->
+      <header class="blog-header section">
+        <h1>Blog</h1>
+        <p class="blog-subtitle">
+          Insights on music production, mixing, mastering, and the art of sound engineering.
+        </p>
+      </header>
+
+      <!-- Blog Posts Grid -->
+      {posts.length > 0 ? (
+        <div class="blog-grid">
+          {posts.map((post) => (
+            <BlogPostCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <div class="blog-empty glass">
+          <div class="empty-icon">📝</div>
+          <h2>No posts yet</h2>
+          <p>Check back soon for music production insights, tutorials, and studio updates!</p>
+        </div>
+      )}
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-page {
+    min-height: 100vh;
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-24);
+  }
+
+  .blog-header {
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: var(--space-12);
+  }
+
+  .blog-header h1 {
+    font-size: var(--text-6xl);
+    font-weight: 700;
+    margin-bottom: var(--space-6);
+    background: linear-gradient(
+      135deg,
+      var(--color-text-primary) 0%,
+      var(--color-teal) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .blog-subtitle {
+    font-size: var(--text-xl);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+  }
+
+  @media (min-width: 768px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Empty State */
+  .blog-empty {
+    text-align: center;
+    padding: var(--space-20);
+    border-radius: var(--radius-xl);
+    max-width: 600px;
+    margin: var(--space-16) auto;
+  }
+
+  .empty-icon {
+    font-size: var(--text-6xl);
+    margin-bottom: var(--space-6);
+    opacity: 0.5;
+  }
+
+  .blog-empty h2 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-4);
+    color: var(--color-text-primary);
+  }
+
+  .blog-empty p {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 640px) {
+    .blog-header h1 {
+      font-size: var(--text-4xl);
+    }
+
+    .blog-subtitle {
+      font-size: var(--text-base);
+    }
+  }
+</style>

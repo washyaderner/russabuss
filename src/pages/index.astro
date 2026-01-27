@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import TrustSection from '../components/TrustSection.astro';
+import PricingSection from '../components/PricingSection.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import ContactSection from '../components/ContactSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+---
+
+<BaseLayout
+  title="Russabuss - Professional Music Production & Audio Engineering"
+  description="Premium mixing, mastering, custom beats, and studio services. 15 years of experience delivering professional sound for artists, podcasters, and filmmakers."
+>
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <HeroSection />
+
+    <!-- Trust/Credentials Section -->
+    <TrustSection />
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+      <PricingSection />
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <ServicesGrid />
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <ContactSection />
+    </section>
+
+    <!-- FAQ Section -->
+    <FAQSection />
+  </main>
+
+  <Footer />
+</BaseLayout>

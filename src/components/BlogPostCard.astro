@@ -1,0 +1,136 @@
+---
+import type { BlogPost } from '../lib/contentful';
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+// Format date for display
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+---
+
+<article class="blog-card glass">
+  {post.featuredImage && (
+    <div class="blog-card-image">
+      <img
+        src={post.featuredImage.url}
+        alt={post.featuredImage.title}
+        loading="lazy"
+      />
+    </div>
+  )}
+  <div class="blog-card-content">
+    <time class="blog-card-date" datetime={post.publishDate}>
+      {formatDate(post.publishDate)}
+    </time>
+    <h3 class="blog-card-title">
+      <a href={`/blog/${post.slug}`}>{post.title}</a>
+    </h3>
+    <p class="blog-card-excerpt">{post.excerpt}</p>
+    <a href={`/blog/${post.slug}`} class="blog-card-link">
+      Read More <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</article>
+
+<style>
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    height: 100%;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .blog-card-image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .blog-card:hover .blog-card-image img {
+    transform: scale(1.05);
+  }
+
+  .blog-card-content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    flex: 1;
+  }
+
+  .blog-card-date {
+    font-size: var(--text-sm);
+    color: var(--color-teal);
+    font-weight: 500;
+    margin-bottom: var(--space-3);
+    display: block;
+  }
+
+  .blog-card-title {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+    line-height: 1.3;
+  }
+
+  .blog-card-title a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .blog-card-title a:hover {
+    color: var(--color-teal);
+  }
+
+  .blog-card-excerpt {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+    flex: 1;
+  }
+
+  .blog-card-link {
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-teal);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: all var(--transition-fast);
+  }
+
+  .blog-card-link:hover {
+    color: var(--color-teal-hover);
+    gap: var(--space-3);
+  }
+
+  .blog-card-link span {
+    font-size: 1.2em;
+  }
+</style>

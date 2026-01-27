@@ -1,0 +1,176 @@
+---
+// ServicesGrid.astro - Professional Services Grid
+const services = [
+  {
+    title: "Mix & Master",
+    description: "Professional mixing and mastering",
+    icon: "🎛️"
+  },
+  {
+    title: "Custom Production",
+    description: "Original instrumentals to your vision",
+    icon: "🎹"
+  },
+  {
+    title: "Beat Licensing",
+    description: "Browse and lease beats instantly",
+    icon: "💿"
+  },
+  {
+    title: "Studio Sessions",
+    description: "Book time with engineering support",
+    icon: "🎙️"
+  },
+  {
+    title: "Vocal Production",
+    description: "Recording, tuning, editing, processing",
+    icon: "🎤"
+  },
+  {
+    title: "DJ Services",
+    description: "Live sets, events, curated playlists",
+    icon: "🎧"
+  }
+];
+---
+
+<section class="services-section section">
+  <div class="container">
+    <div class="services-header">
+      <h2 class="services-title">Services</h2>
+      <p class="services-subtitle">Professional audio solutions for every project</p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service) => (
+        <div class="service-card glass">
+          <div class="service-icon" aria-hidden="true">{service.icon}</div>
+          <h3 class="service-title">{service.title}</h3>
+          <p class="service-description">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .services-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .services-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .service-card {
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-teal) 0%, var(--color-teal-hover) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+      0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  .service-icon {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-4);
+    line-height: 1;
+  }
+
+  .service-title {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+    font-family: var(--font-display);
+  }
+
+  .service-description {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* Responsive Grid Layout */
+  @media (min-width: 640px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-8);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .services-section {
+      padding-top: var(--space-20);
+      padding-bottom: var(--space-20);
+    }
+
+    .services-header {
+      margin-bottom: var(--space-16);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-card {
+      padding: var(--space-10);
+    }
+  }
+
+  @media (max-width: 639px) {
+    .services-title {
+      font-size: var(--text-3xl);
+    }
+
+    .service-title {
+      font-size: var(--text-xl);
+    }
+  }
+</style>

@@ -1,0 +1,112 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="logo">
+        <span class="logo-text">RUSSABUSS</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/#pricing" class="nav-link">Pricing</a>
+        <a href="/#services" class="nav-link">Services</a>
+        <a href="/blog" class="nav-link" aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}>Blog</a>
+        <a href="/#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <a href="/#contact" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-sticky);
+
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    transition: all var(--transition-base);
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: var(--space-4) 0;
+  }
+
+  .logo {
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .logo:hover {
+    opacity: 0.8;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-text-primary);
+  }
+
+  .nav {
+    display: none;
+    align-items: center;
+    gap: var(--space-6);
+    margin-left: auto;
+    margin-right: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .nav {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .nav-link[aria-current="page"] {
+    color: var(--color-teal);
+  }
+
+  .nav-link[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-teal);
+    border-radius: 2px;
+  }
+
+  /* Add top padding to body to prevent content from hiding under fixed header */
+  :global(body) {
+    padding-top: 72px;
+  }
+</style>

@@ -1,0 +1,270 @@
+---
+import ContactForm from './ContactForm.jsx';
+---
+
+<section id="contact" class="contact-section section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Let's Create Together</h2>
+      <p class="subtitle">Get in touch to discuss your project</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Form -->
+      <div class="form-container glass">
+        <ContactForm client:load />
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="info-card glass">
+          <h3>Get In Touch</h3>
+          <p class="info-description">
+            Ready to elevate your sound? Reach out and let's discuss how we can bring your vision to life.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div>
+                <div class="label">Email</div>
+                <a href="mailto:audio@russabuss.com" class="value">audio@russabuss.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="label">Phone</div>
+                <a href="tel:+15037345502" class="value">(503) 734-5502</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                  <path d="M2 12h20"/>
+                </svg>
+              </div>
+              <div>
+                <div class="label">Web3</div>
+                <div class="web3-addresses">
+                  <span class="value">russabuss.eth</span>
+                  <span class="value">russabuss.sol</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="response-time glass">
+          <div class="icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <div class="response-title">Quick Response</div>
+            <p class="response-text">We typically respond within 24 hours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    position: relative;
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header h2 {
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-teal) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: var(--text-xl);
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: var(--container-lg);
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-12);
+    }
+  }
+
+  .form-container {
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+  }
+
+  @media (min-width: 768px) {
+    .form-container {
+      padding: var(--space-10);
+    }
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .info-card {
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+  }
+
+  .info-card h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .info-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+    line-height: 1.7;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .contact-item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+    background: rgba(45, 212, 191, 0.1);
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+
+  .label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .value {
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  a.value {
+    color: var(--color-teal);
+    transition: color var(--transition-fast);
+  }
+
+  a.value:hover {
+    color: var(--color-teal-hover);
+  }
+
+  .web3-addresses {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .web3-addresses .value {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .response-time {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-teal);
+    background: rgba(45, 212, 191, 0.05);
+  }
+
+  .response-time .icon-wrapper {
+    background: rgba(45, 212, 191, 0.15);
+  }
+
+  .response-title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-teal);
+    margin-bottom: var(--space-1);
+  }
+
+  .response-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 640px) {
+    .section-header h2 {
+      font-size: var(--text-3xl);
+    }
+
+    .subtitle {
+      font-size: var(--text-lg);
+    }
+
+    .form-container {
+      padding: var(--space-6);
+    }
+
+    .info-card {
+      padding: var(--space-6);
+    }
+
+    .info-card h3 {
+      font-size: var(--text-xl);
+    }
+  }
+</style>
