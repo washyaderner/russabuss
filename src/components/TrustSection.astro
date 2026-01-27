@@ -1,25 +1,21 @@
 ---
-// TrustSection.astro - Professional Credentials Grid
-const credentials = [
+// TrustSection.astro - Case Studies Grid
+const caseStudies = [
   {
-    title: "15 Years Experience",
-    description: "Since 2010",
-    icon: "🎵"
+    title: "20-Track Album in 3 Months",
+    description: "Produced, mixed, and mastered \"Leon McConnell Twenty Poems\" - building full instrumental soundscapes for his audio recordings. Client said: \"He exceeded my expectations by miles... creating whole worlds for these songs.\""
   },
   {
-    title: "Flexible Projects",
-    description: "Albums, Podcasts, Movie Scores",
-    icon: "🎬"
+    title: "Multiple Producers, Customized Beats",
+    description: "Produced 2 of the beats. Added instrumentation to 3 of the 7 tracks for Struggle Crew. Mix and master exceeded expectations. \"You took a simple small thing and brought it to life. I can't pay you enough for that. I see all the love for music you pour into it. I'm wowed.\""
   },
   {
-    title: "Industry Standard",
-    description: "Pro Tools certified",
-    icon: "⚡"
+    title: "5-Song EP From Scratch",
+    description: "Delivered a complete EP for Dirty Chai - beats, mixing, mastering, and additional vocals from Holly Cole. Mixed and pitch-corrected 14 vocal tracks for Voodoo Bed's title song - blending freestyle ad-libs and backup vocals into a seamless final master."
   },
   {
-    title: "Premium Gear",
-    description: "Full studio setup",
-    icon: "🎚️"
+    title: "10 Track 100% Live Instrument Album",
+    description: "Fully recorded and produced \"True Love Story\" by Jenny. Sourced live drums, professionally mic'd, live bass & guitar, vocals recorded on AT 4050."
   }
 ];
 ---
@@ -27,11 +23,10 @@ const credentials = [
 <section class="trust-section section">
   <div class="container">
     <div class="trust-grid">
-      {credentials.map((credential) => (
+      {caseStudies.map((study) => (
         <div class="trust-card glass">
-          <div class="trust-icon" aria-hidden="true">{credential.icon}</div>
-          <h3 class="trust-title">{credential.title}</h3>
-          <p class="trust-description">{credential.description}</p>
+          <h3 class="trust-title">{study.title}</h3>
+          <p class="trust-description">{study.description}</p>
         </div>
       ))}
     </div>
@@ -53,9 +48,11 @@ const credentials = [
   .trust-card {
     border-radius: var(--radius-xl);
     padding: var(--space-8);
-    text-align: center;
+    text-align: left;
     transition: all var(--transition-base);
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   .trust-card:hover {
@@ -65,17 +62,11 @@ const credentials = [
       0 8px 32px rgba(0, 0, 0, 0.35);
   }
 
-  .trust-icon {
-    font-size: var(--text-5xl);
-    margin-bottom: var(--space-4);
-    line-height: 1;
-  }
-
   .trust-title {
     font-size: var(--text-xl);
     font-weight: 600;
     color: var(--color-text-primary);
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
     font-family: var(--font-display);
   }
 
@@ -83,7 +74,7 @@ const credentials = [
     font-size: var(--text-base);
     color: var(--color-text-secondary);
     margin-bottom: 0;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* Responsive Grid Layout */
@@ -106,7 +97,7 @@ const credentials = [
 
   @media (min-width: 1024px) {
     .trust-grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .trust-card {
