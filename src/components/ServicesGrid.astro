@@ -3,32 +3,68 @@
 const services = [
   {
     title: "Mix & Master",
-    description: "Professional mixing and mastering",
+    pricing: "$350 ea/ $50hr",
+    details: [
+      "Pricing depends on scope of project",
+      "Request Google Drive link for uploading wavs",
+      "Upload audio in wav format with -6db headroom",
+      "We'll have a convo about your vision for best results"
+    ],
     icon: "🎛️"
   },
   {
-    title: "Custom Production",
-    description: "Original instrumentals to your vision",
+    title: "Custom Tracks",
+    pricing: "$300-$500",
+    details: [
+      "Creating music for an existing recording",
+      "Music for spoken word, mixtape, podcast, intros",
+      "Cost depends on the project. Reach out for a quote",
+      "We'll discuss your vision & upload existing files"
+    ],
     icon: "🎹"
   },
   {
-    title: "Beat Licensing",
-    description: "Browse and lease beats instantly",
+    title: "Instrumentals",
+    pricing: "$50-$2k",
+    details: [
+      "See pricing above, and details on the Services page",
+      "Head to the Beats page to shop for instrumentals",
+      "Exclusive and Non-Exclusive licensing options",
+      "Bundle discounts & coupon codes for subscribers"
+    ],
     icon: "💿"
   },
   {
-    title: "Studio Sessions",
-    description: "Book time with engineering support",
+    title: "Studio Time",
+    pricing: "$50/hr",
+    details: [
+      "Record vocals, instrumentals, acoustic sets",
+      "Access to terabytes of samples and instruments",
+      "Professionally sound treated studio & plenty of gear",
+      "Recording equipment & software for video content"
+    ],
     icon: "🎙️"
   },
   {
-    title: "Vocal Production",
-    description: "Recording, tuning, editing, processing",
+    title: "Female & Male Vox",
+    pricing: "$100-$200",
+    details: [
+      "Price difference based on prewritten vs custom",
+      "For female vox examples, see \"Seed\" & \"Sloth\"",
+      "Female & Male vox textures and samples, beat tags",
+      "Recordings bounced in wav format, dry or wet"
+    ],
     icon: "🎤"
   },
   {
-    title: "DJ Services",
-    description: "Live sets, events, curated playlists",
+    title: "DJ For Your Event",
+    pricing: "$500-$2000/ $150/hr",
+    details: [
+      "Laptop, PA system, mixer, microphones, lighting",
+      "MC, help with structure, sound checks all planned",
+      "If event planning is needed, I partner with a planner",
+      "Playlists ready to go, uploading site for your picks"
+    ],
     icon: "🎧"
   }
 ];
@@ -38,7 +74,6 @@ const services = [
   <div class="container">
     <div class="services-header">
       <h2 class="services-title">Services</h2>
-      <p class="services-subtitle">Professional audio solutions for every project</p>
     </div>
 
     <div class="services-grid">
@@ -46,7 +81,12 @@ const services = [
         <div class="service-card glass">
           <div class="service-icon" aria-hidden="true">{service.icon}</div>
           <h3 class="service-title">{service.title}</h3>
-          <p class="service-description">{service.description}</p>
+          <p class="service-pricing">{service.pricing}</p>
+          <ul class="service-details">
+            {service.details.map((detail) => (
+              <li class="detail-item">{detail}</li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
@@ -124,15 +164,42 @@ const services = [
     font-size: var(--text-2xl);
     font-weight: 600;
     color: var(--color-text-primary);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
     font-family: var(--font-display);
   }
 
-  .service-description {
-    font-size: var(--text-base);
+  .service-pricing {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-teal);
+    margin-bottom: var(--space-4);
+    font-family: var(--font-display);
+  }
+
+  .service-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .detail-item {
+    font-size: var(--text-sm);
     color: var(--color-text-secondary);
-    margin-bottom: 0;
     line-height: 1.6;
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .detail-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-teal);
+    font-weight: 700;
+    font-size: var(--text-base);
   }
 
   /* Responsive Grid Layout */
